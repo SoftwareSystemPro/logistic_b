@@ -7,13 +7,15 @@ import vehicle from "../controller/vehicle";
 import contact from "../controller/contact";
 import category from "../controller/category";
 import services from "../controller/services";
+import seo from "../controller/seo";
 
 const router = Router()
 
 // route admin
 router.get("/admins", admin.Get);
 router.get("/admins/:id", admin.GetId);
-router.post("/admins",checkToken,admin.Post);
+// router.post("/admins",checkToken,admin.Post);
+router.post("/admins",admin.Post);
 router.post("/signin", admin.SignIn);
 router.put("/admins/:id", checkToken, admin.Put);
 router.delete("/admins/:id", checkToken, admin.Delete);
@@ -59,6 +61,13 @@ router.get("/services/:id", services.GetId);
 router.post("/services", checkToken, services.Post);
 router.put("/services/:id", checkToken, services.Put);
 router.delete("/services/:id", checkToken, services.Delete);
+
+// route seo
+router.get("/seo", seo.Get);
+router.get("/seo/:id", seo.GetId);
+router.post("/seo", checkToken, seo.Post);
+router.put("/seo/:id", checkToken, seo.Put);
+router.delete("/seo/:id", checkToken, seo.Delete);
 
 export default router;
 
