@@ -14,8 +14,8 @@ const router = Router()
 // route admin
 router.get("/admins", admin.Get);
 router.get("/admins/:id", admin.GetId);
-// router.post("/admins",checkToken,admin.Post);
-router.post("/admins",admin.Post);
+router.post("/admins",checkToken,admin.Post);
+// router.post("/admins",admin.Post);
 router.post("/signin", admin.SignIn);
 router.put("/admins/:id", checkToken, admin.Put);
 router.delete("/admins/:id", checkToken, admin.Delete);
@@ -30,21 +30,21 @@ router.delete("/blog/:id", checkToken, blog.Delete);
 // route form
 router.get("/form", form.Get);
 router.get("/form/:id", form.GetId);
-router.post("/form", checkToken, form.Post);
+router.post("/form", form.Post);
 router.put("/form/:id", checkToken, form.Put);
 router.delete("/form/:id", checkToken, form.Delete);
 
 // route vehicle
 router.get("/vehicle", vehicle.Get);
 router.get("/vehicle/:id", vehicle.GetId);
-router.post("/vehicle", checkToken, vehicle.Post);
+router.post("/vehicle",vehicle.Post);
 router.put("/vehicle/:id", checkToken, vehicle.Put);
 router.delete("/vehicle/:id", checkToken, vehicle.Delete);
 
 // route contact
 router.get("/contact", contact.Get);
 router.get("/contact/:id", contact.GetId);
-router.post("/contact", checkToken, contact.Post);
+router.post("/contact",contact.Post);
 router.put("/contact/:id", checkToken, contact.Put);
 router.delete("/contact/:id", checkToken, contact.Delete);
 
