@@ -18,9 +18,9 @@ class SeoController {
     }
 
     public async Post(req: Request, res: Response) {
-        const { meta_title, meta_description, meta_key } = req.body
+        const { meta_title, meta_description, meta_key, page_name } = req.body
 
-        const seo = await AppDataSource.getRepository(SeoEntity).createQueryBuilder().insert().into(SeoEntity).values({ meta_title, meta_description, meta_key }).returning("*").execute()
+        const seo = await AppDataSource.getRepository(SeoEntity).createQueryBuilder().insert().into(SeoEntity).values({ meta_title, meta_description, meta_key, page_name }).returning("*").execute()
 
         res.json({
             status: 201,
@@ -31,11 +31,11 @@ class SeoController {
 
     public async Put(req: Request, res: Response) {
         try {
-            const { meta_title, meta_description, meta_key } = req.body
+            const { meta_title, meta_description, meta_key, page_name } = req.body
             const { id } = req.params
 
             const seo = await AppDataSource.getRepository(SeoEntity).createQueryBuilder().update(SeoEntity)
-                .set({ meta_title, meta_description, meta_key })
+                .set({ meta_title, meta_description, meta_key, page_name })
                 .where({ id })
                 .returning("*")
                 .execute()

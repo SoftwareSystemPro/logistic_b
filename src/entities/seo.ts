@@ -17,6 +17,9 @@ export class SeoEntity {
     @Column({ type: "varchar" })
     meta_key: string;
 
+    @Column({ type: "varchar" })
+    page_name: string;
+
     @CreateDateColumn({ type: "timestamp" })
     createdAt: Date;
 
