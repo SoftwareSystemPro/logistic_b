@@ -8,6 +8,9 @@ import contact from "../controller/contact";
 import category from "../controller/category";
 import services from "../controller/services";
 import seo from "../controller/seo";
+import cars from "../controller/cars";
+import city from "../controller/city";
+import states from "../controller/states";
 
 const router = Router()
 
@@ -68,6 +71,18 @@ router.get("/seo/:id", seo.GetId);
 router.post("/seo", checkToken, seo.Post);
 router.put("/seo/:id", checkToken, seo.Put);
 router.delete("/seo/:id", checkToken, seo.Delete);
+
+// route cars
+router.get("/cars", cars.Get);
+router.get("/cars/:id", cars.GetId);
+
+// route city
+router.get("/cities", city.Get);
+router.get("/cities/:id", city.GetId);
+
+// route states
+router.get("/states", states.Get);
+router.get("/states/:id", states.GetId);
 
 export default router;
 
