@@ -24,9 +24,9 @@ class ServicesController {
     }
 
     public async Post(req: Request, res: Response) {
-        const { image,name,title1,title2,title3,description1,description2,description3,status,category } = req.body
+        const { image,name,title1,title2,title3,description1,description2,description3,status,link,category } = req.body
 
-        const services = await AppDataSource.getRepository(ServicesEntity).createQueryBuilder().insert().into(ServicesEntity).values({ image,name,title1,title2,title3,description1,description2,description3,status,category }).returning("*").execute()
+        const services = await AppDataSource.getRepository(ServicesEntity).createQueryBuilder().insert().into(ServicesEntity).values({ image,name,title1,title2,title3,description1,description2,description3,status,link,category }).returning("*").execute()
 
         res.json({
             status: 201,
@@ -37,11 +37,11 @@ class ServicesController {
 
     public async Put(req: Request, res: Response) {
         try {
-            const { image,name,title1,title2,title3,description1,description2,description3,status,category } = req.body
+            const { image,name,title1,title2,title3,description1,description2,description3,status,link,category } = req.body
             const { id } = req.params
 
             const services = await AppDataSource.getRepository(ServicesEntity).createQueryBuilder().update(ServicesEntity)
-                .set({ image,name,title1,title2,title3,description1,description2,description3,status,category })
+                .set({ image,name,title1,title2,title3,description1,description2,description3,status,link,category })
                 .where({ id })
                 .returning("*")
                 .execute()

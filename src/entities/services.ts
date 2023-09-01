@@ -45,6 +45,10 @@ export class ServicesEntity {
     @IsString()
     status: string
 
+    @Column({ type: "varchar",nullable:true })
+    @IsString()
+    link: string
+
     @CreateDateColumn({ type: "timestamp" })
     createdAt: Date;
 
