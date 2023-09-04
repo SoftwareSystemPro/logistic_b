@@ -17,33 +17,13 @@ export class ServicesEntity {
     @IsString()
     name: string
 
-    @Column({ type: "varchar" })
-    @IsString()
-    title1: string
-
-    @Column({ type: "varchar" })
-    @IsString()
-    title2: string
-
-    @Column({ type: "varchar" })
-    @IsString()
-    title3: string
-
-    @Column({ type: "varchar" })
-    @IsString()
-    description1: string
-
-    @Column({ type: "varchar" })
-    @IsString()
-    description2: string
-    
-    @Column({ type: "varchar" })
-    @IsString()
-    description3: string
-
-    @Column({ type: "varchar" })
+    @Column({ type: "varchar",nullable:true })
     @IsString()
     status: string
+
+    @Column({ type: "varchar",nullable:true })
+    @IsString()
+    all: string
 
     @Column({ type: "varchar",nullable:true })
     @IsString()
