@@ -11,6 +11,7 @@ import seo from "../controller/seo";
 import cars from "../controller/cars";
 import city from "../controller/city";
 import states from "../controller/states";
+import pages from "../controller/pages";
 
 const router = Router()
 
@@ -29,6 +30,13 @@ router.get("/blog/:id", blog.GetId);
 router.post("/blog", checkToken, blog.Post);
 router.put("/blog/:id", checkToken, blog.Put);
 router.delete("/blog/:id", checkToken, blog.Delete);
+
+// route pages
+router.get("/pages", pages.Get);
+router.get("/pages/:id", pages.GetId);
+router.post("/pages", checkToken, pages.Post);
+router.put("/pages/:id", checkToken, pages.Put);
+router.delete("/pages/:id", checkToken, pages.Delete);
 
 // route form
 router.get("/form", form.Get);
